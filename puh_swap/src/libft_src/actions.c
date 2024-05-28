@@ -6,40 +6,11 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 11:47:36 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/26 15:00:35 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:12:41 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
-
-char	*ft_strdup(const char *s)
-{
-	char	*p;
-	char	*t;
-	size_t	len;
-
-	len = ft_strlen((char *)s);
-	p = (char *)malloc((sizeof(char) * (len + 1)));
-	if (!p)
-		return (NULL);
-	t = p;
-	while (*s)
-	{
-		*p++ = *s++;
-	}
-	*p = '\0';
-	return (t);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "../inc/push_swap.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -59,16 +30,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[i] = '\0';
 	return (len);
-}
-
-int	ft_isdigit(int c)
-{
-	return (c <= 57 && c >= 48);
-}
-
-int	ft_isalpha(int c)
-{
-	return ((c <= 122 && c >= 97) || (c >= 65 && c <= 90));
 }
 
 long	ft_atoi(const char *nptr)
@@ -96,4 +57,44 @@ long	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (res * signe);
+}
+void	check_space(char **av)
+{
+	int	i = 1;
+	int j = 0;
+	while (av[i])
+	{
+		while (av[i][j] == ' ')
+			j++;
+		if (!av[i][j])
+			error();
+		i++;
+	}
+	return ;
+}
+
+int	check_digit(char **av)
+{
+	int i = 0;
+	int j = 0;
+	while (av[i])
+		if (!*av[i++])
+			return(1);
+	check_space(av);
+	i = 0;	
+	while (av[i])
+	{
+		j = 0;
+	
+		while (av[i][j])
+		{
+			if ((av[i][j] == '-' || av[i][j] == '+') && (ft_isdigit(av[i][j + 1])))
+				return (0);
+			else if (ft_isdigit(av[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

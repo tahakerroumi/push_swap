@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tkerroum <tkerroum@student.42.fr>          +#+  +:+       +#+         #
+#    By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 05:17:05 by tkerroum          #+#    #+#              #
-#    Updated: 2024/05/27 10:21:30 by tkerroum         ###   ########.fr        #
+#    Updated: 2024/05/28 13:42:13 by tkerroum         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 
 EXEC = push_swap
-DEBUG = -fsanitize=address
-SRC = inc/main.c inc/libft_src/actions.c inc/libft_src/linked.c inc/libft_src/ft_split.c inc/push/parsing.c inc/push/stack_a.c
+SRC = src/libft_src/actions.c src/libft_src/ft_split.c \
+		src/push/parsing.c src/push/stack_a.c src/main.c src/libft_src/next_actions.c
 OBJ = $(SRC:%.c=%.o)
 
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(EXEC) $(DEBUG)
+	$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
 
 %.o: inc/%.c
 	$(CC) $(CFLAGS) -c $< -o $@ $(DEBUG)

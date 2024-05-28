@@ -6,11 +6,11 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 12:08:55 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/26 13:48:12 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:36:32 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
+#include "../inc/push_swap.h"
 
 static char	**free_if_error(char **ptr, int index)
 {

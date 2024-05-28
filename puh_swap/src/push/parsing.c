@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum <tkerroum@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 21:55:33 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/27 13:31:56 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/28 17:58:48 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
+#include "../inc/push_swap.h"
 
 static char	*ft_strcpy(char *dest, const char *src)
 {
@@ -51,46 +51,10 @@ char	*ft_strjoin(char *s1, char const *s2)
 	return (str);
 }
 
-void	error(char *str)
+void	error()
 {
-	if(str)
-		free(str);
 	write(2,"Error\n",sizeof("Error\n"));
 	exit(1);
-}
-
-int	check_string(char *str)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-	{
-		if (((str[i] == '+' || str[i] == '-') && (!ft_isdigit(str[i + 1]))))
-			return (1);
-		else if ((str[i] == '+' || str[i] == '-') && (str[i + 1] == '+' || str[i + 1] == '-'))
-			return (1);
-		else if (ft_isalpha(str[i]))
-			return (1);
-		else if ((i > 0 &&  (str[i] == '+' || str[i] == '-') && str[i - 1] != ' ' ))
-		{
-			return (1);
-		}
-		
-		i++;
-	}
-	return (0);
-}
-
-char*	space(char *str)
-{
-	char *p;
-
-	p = ft_strjoin(str," ");
-	free(str);
-	return (p);
 }
 
 int	check_no_digit(char *str)
@@ -107,22 +71,22 @@ int	check_no_digit(char *str)
 	}	
 	return (0);
 }
+int check_double(t_list *list)
+{	
+	int num;
+	t_list *tmp;
 
-char*	parsing(int ac, char **av)
-{
-	int		i;
-	char	*tmp;
-	char	*str;
-
-	str = NULL;
-	i = 1;
-	while (i < ac)
+	while(list)
 	{
-		tmp = str;
-		str = space(ft_strjoin(str,av[i]));
-		i++;
-		free(tmp);
+		num = list->value;
+		tmp = list->next;
+		while (tmp)
+		{
+			if (num == tmp->value)
+				return (1);
+			tmp = tmp->next;
+		}
+		list = list->next;
 	}
-	return (str);
+	return (0);
 }
-

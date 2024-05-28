@@ -3,15 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum <tkerroum@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:21:35 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/27 14:01:25 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/28 17:58:39 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "inc/push_swap.h"
 
+void free_double(char **ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i])
+	{
+		free(ptr[i]);
+		i++;
+	}
+	free(ptr);
+}
 
 size_t get_av_len(char **av)
 {
@@ -23,9 +35,9 @@ size_t get_av_len(char **av)
 	while(av[i])
 	{	
 		len += ft_strlen(av[i]);
-		i++;
+		i++;	
 	}
-	return len + i - 2;
+	return (len + i - 2);
 }
 
 char *av_join(char **av)
@@ -40,7 +52,6 @@ char *av_join(char **av)
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-	
 	while(av[i])
 	{
 		j = 0;	
@@ -53,54 +64,58 @@ char *av_join(char **av)
 	return (str);
 }
 
-int check_int_min_max(char *str)
+t_list *list_parse(char **av)
 {
-	unsigned int i;
-	int	sign;
-	long	num;
-
+	char *str;
+	char **str_arr;
+	int i;
+	t_list *list;
+	
 	i = 0;
-	num = 0;
-	sign = 1;
-	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (check_digit(av))
+		error();
+	str = av_join(av);
+	str_arr = ft_split(str, ' ');
+	free(str);
+	while (str_arr[i])
 	{
-		if (str[i] == '-')
-			sign = -1;
+		if(check_no_digit(str_arr[i]) || check_int_min_max(str_arr[i]))
+		{
+			free_double(str_arr);
+			return (NULL);
+		}
 		i++;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		num = num * 10 + (str[i] - '0');
-		if ((num * sign < INT_MIN) || (num > INT_MAX))
-			return (1);
-		i++;		
-	}
-	return (0);
+	list = list_create(str_arr);
+	free_double(str_arr);
+	return (list);
 }
 
 int main(int ac, char **av)
 {
-	t_list*	stack_a;
-	char*	str;
-	unsigned int i;
+	t_list	*list;
+	t_list	*list1;
 	
-	stack_a = NULL;
-	str = NULL;
-	i = 0;
 	if (ac > 1)
 	{
-		char *str = av_join(av);
-		char **str_arr = ft_split(str, ' ');
-		free(str);
-		while (str_arr[i])
+		list = list_parse(av);
+		list1 = list;
+		if (!list)
 		{
-			if(check_no_digit(str_arr[i]) || check_int_min_max(str_arr[i]))
-				printf("Error\n");
-			i++;
+			error();
 		}
-		free_double(str_arr);
+		if (check_double(list))
+		{
+			ft_lstclear(&list1);
+			error();
+		}
+		
+		while (list)
+		{
+			printf("list->index %u | list->val: %d\n", list->index, list->value);
+			list = list->next;
+		}
+		ft_lstclear(&list1);
 	}
 	return (0);
 }

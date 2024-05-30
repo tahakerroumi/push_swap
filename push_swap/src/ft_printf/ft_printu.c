@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_printu.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 09:26:24 by tkerroum          #+#    #+#             */
-/*   Updated: 2023/12/11 09:27:38 by tkerroum         ###   ########.fr       */
+/*   Created: 2023/12/15 01:47:33 by tkerroum          #+#    #+#             */
+/*   Updated: 2024/05/30 22:58:56 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "../inc/push_swap.h"
 
-int	ft_putchar(char c)
+int	ft_printu(unsigned int num)
 {
-	write(1, &c, 1);
-	return (1);
+	unsigned int	counter;
+
+	counter = 0;
+	if (num >= 10)
+		counter += ft_printu(num / 10);
+	counter += ft_putchar(num % 10 + 48);
+	return (counter);
 }

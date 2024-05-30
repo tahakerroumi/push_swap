@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 01:47:03 by tkerroum          #+#    #+#             */
-/*   Updated: 2023/12/15 01:47:11 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:58:47 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "../inc/push_swap.h"
 
 int	ft_printhex(unsigned int num, int a)
 {

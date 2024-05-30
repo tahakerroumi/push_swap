@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:18:43 by tkerroum          #+#    #+#             */
-/*   Updated: 2023/12/08 16:22:15 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:58:31 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/push_swap.h"
 
 static	int	percent(char str, va_list ptr)
 {

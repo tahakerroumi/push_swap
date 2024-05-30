@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 22:30:59 by tkerroum          #+#    #+#             */
-/*   Updated: 2023/12/12 22:32:31 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:58:53 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/push_swap.h"
 
 int	ft_printp(unsigned long num)
 {

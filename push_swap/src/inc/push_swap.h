@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -39,3 +40,10 @@ void	ft_lstclear(t_list **lst);
 t_list*	list_create(char **list_arr);
 int		check_double(t_list *list);
 int		check_int_min_max(char *str);
+int		ft_putchar(char c);
+int		ft_printp(unsigned long num);
+int		ft_putstr(char *str);
+int		ft_printf(const char *str, ...);
+int		ft_printhex(unsigned int num, int a);
+int		ft_putnbr(int num);
+int		ft_printu(unsigned int num);

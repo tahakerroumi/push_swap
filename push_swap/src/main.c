@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:21:35 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/28 17:58:39 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/28 20:26:42 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,20 +101,13 @@ int main(int ac, char **av)
 		list = list_parse(av);
 		list1 = list;
 		if (!list)
-		{
 			error();
-		}
 		if (check_double(list))
 		{
 			ft_lstclear(&list1);
 			error();
 		}
 		
-		while (list)
-		{
-			printf("list->index %u | list->val: %d\n", list->index, list->value);
-			list = list->next;
-		}
 		ft_lstclear(&list1);
 	}
 	return (0);

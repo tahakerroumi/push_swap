@@ -3,18 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:30:20 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/30 17:56:10 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/05/31 17:59:37 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+t_list *ft_lstlast(t_list *lst)
+{   
+    if (!lst)
+        return (NULL);
+    while (lst->next)
+        lst = lst->next;
+    return (lst); 
+}
+
 void	swap(t_list**	node)
 {
-	if (!*node || !*node->next)
+	if (!*node || !(*node)->next)
 		return ;
 	t_list* first_node = *node;
     t_list* second_node = (*node)->next;

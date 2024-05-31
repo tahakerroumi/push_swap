@@ -47,3 +47,5 @@ int		ft_printf(const char *str, ...);
 int		ft_printhex(unsigned int num, int a);
 int		ft_putnbr(int num);
 int		ft_printu(unsigned int num);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list*	ft_lstlast(t_list *lst);

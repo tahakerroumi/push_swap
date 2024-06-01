@@ -6,11 +6,18 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 11:47:36 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/28 18:12:41 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/01 13:36:01 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+int ft_lstsize(t_list *lst)
+{
+    if (lst == 0)
+        return (0);
+    return (1 + ft_lstsize(lst->next));
+}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

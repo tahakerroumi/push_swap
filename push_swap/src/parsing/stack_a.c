@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   stack_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:34:43 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/31 17:56:23 by ta7ino           ###   ########.fr       */
+/*   Updated: 2024/06/01 13:04:43 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+t_list* ft_lstlast(t_list *lst)
+{   
+    if (!lst)
+        return (NULL);
+    while (lst->next)
+        lst = lst->next;
+    return (lst); 
+}
 
 void ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -31,7 +40,7 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 void ft_lstadd_front(t_list **lst, t_list *new)
 {
     if (!lst || !new)
-        return (0);
+        return ;
     new->next = *lst;
     *lst = new;
 }

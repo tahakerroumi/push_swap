@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:21:35 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/28 20:26:42 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/01 13:39:26 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ int main(int ac, char **av)
 			ft_lstclear(&list1);
 			error();
 		}
-		
 		ft_lstclear(&list1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 21:55:33 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/28 17:58:48 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/02 22:05:56 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	check_no_digit(char *str)
 	
 	if (str[i] == '+' || str[i] == '-')
 			i++;
+	if (str[i] == '\0')
+		return (1);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))

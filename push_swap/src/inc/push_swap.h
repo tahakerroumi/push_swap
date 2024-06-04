@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #ifndef "PUSH_SWAP_H"
-// # define "PUSH_SWAP_H"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -61,6 +61,18 @@ int		ft_putnbr(int num);
 int		ft_printu(unsigned int num);
 
 // moves
-void	s(t_list* swap);
+void	s(t_list* swap, int i);
+void	p(t_list** stack_src, t_list** stack_dest, int i);
+void	r_r(t_list **stack_a, t_list **stack_b);
+void	ss(t_list *stack_a, t_list *stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	r(t_list** stack, int i);
+void	rr(t_list** stack, int i);
+void	push_swap(t_list** list);
+int		if_sorted(t_list** lst);
+int		max_number(t_list** lst);
+int		min_number(t_list** lst);
+void	four(t_list** lst);
+void	three(t_list** lst);
 
-// #endif
+#endif

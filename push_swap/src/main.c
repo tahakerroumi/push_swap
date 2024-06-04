@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:21:35 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/01 13:39:26 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:47:07 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_list *list_parse(char **av)
 	if (check_digit(av))
 		error();
 	str = av_join(av);
+	check_no_digit(str);
 	str_arr = ft_split(str, ' ');
 	free(str);
 	while (str_arr[i])
@@ -107,6 +108,7 @@ int main(int ac, char **av)
 			ft_lstclear(&list1);
 			error();
 		}
+		push_swap(&list);
 		ft_lstclear(&list1);
 	}
 	return (0);

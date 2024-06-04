@@ -6,13 +6,13 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 17:55:24 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/01 16:01:47 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/04 01:28:38 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	s(t_list* swap)
+void	s(t_list* swap, int i)
 {
 	int tmp;
 
@@ -22,20 +22,29 @@ void	s(t_list* swap)
 		swap->value = swap->next->value;
 		swap->next->value = tmp; 
 	}
+	if (i == 1)
+		ft_printf("sa\n");
+	else
+		ft_printf("sb\n");
 }
 
-void	p(t_list** stack_src, t_list** stack_dest)
+void p(t_list** stack_src, t_list** stack_dest, int i)
 {
-	t_list* tmp;
+    t_list* tmp;
 
-	if (!(*stack_src))
-		return ;
-	tmp = (*stack_src);
-	(*stack_src) = (*stack_src)->next;
-	tmp->next = (*stack_dest);
-	(*stack_dest) = tmp;
+    if (!(*stack_src))
+        return;
+
+    tmp = *stack_src;
+    *stack_src = (*stack_src)->next;
+    tmp->next = *stack_dest;
+    *stack_dest = tmp;
+    if (i == 1)
+        ft_printf("pa\n");
+    else
+        ft_printf("pb\n");
 }
-void	r(t_list** stack)
+void	r(t_list** stack,int i)
 {
 	t_list* first;
 	t_list* last;
@@ -48,8 +57,12 @@ void	r(t_list** stack)
 		last->next = first;
 		first->next = NULL; 
 	}
+	if (i == 1)
+		ft_printf("ra\n");
+	else
+		ft_printf("rb\n");
 }
-void	rr(t_list** stack)
+void	rr(t_list** stack, int i)
 {
 	t_list* first;
 	t_list* last;
@@ -69,4 +82,8 @@ void	rr(t_list** stack)
 		}
 		ft_lstadd_front(stack, last);
 	}
+	if (i == 1)
+		ft_printf("rra\n");
+	else
+		ft_printf("rrb\n");
 }

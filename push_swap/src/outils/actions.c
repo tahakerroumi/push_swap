@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 11:47:36 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/01 13:36:01 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/03 04:20:01 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ long	ft_atoi(const char *nptr)
 	while (ft_isdigit(nptr[i]))
 	{
 		res = res * 10 + (nptr[i] - '0');
-		if ((res >= INT_MAX && signe == 1) || (res <= INT_MIN && signe == -1))
+		if ((res * signe > INT_MAX) || (res * signe < INT_MIN))
 			return (21474836484);
 		i++;
 	}
@@ -88,6 +88,7 @@ int	check_digit(char **av)
 		if (!*av[i++])
 			return(1);
 	check_space(av);
+	
 	i = 0;	
 	while (av[i])
 	{

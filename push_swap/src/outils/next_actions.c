@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:39:33 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/05/28 17:56:55 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/03 04:20:41 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int check_int_min_max(char *str)
 	while (ft_isdigit(str[i]))
 	{
 		num = num * 10 + (str[i] - '0');
-		if ((num < INT_MIN && sign == -1) || (num > INT_MAX && sign == 1))
+		if ((num * sign < INT_MIN ) || (num * sign > INT_MAX))
 			return (1);
 		i++;		
 	}

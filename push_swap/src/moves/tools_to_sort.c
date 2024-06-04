@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   both_moves.c                                       :+:      :+:    :+:   */
+/*   tools_to_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 16:20:16 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/03 21:06:25 by tkerroum         ###   ########.fr       */
+/*   Created: 2024/06/02 20:40:02 by tkerroum          #+#    #+#             */
+/*   Updated: 2024/06/03 21:21:44 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	r_r(t_list **stack_a, t_list **stack_b)
+int	max_number(t_list** lst)
 {
-	r(stack_b,2);
-	r(stack_a,1);
+	int		max;
+	t_list* first;
+
+	max = (*lst)->value;
+	first = *lst;
+	while (first)
+	{
+		if (max <= first->value)
+			max = first->value;
+		first = first->next;
+	}
+	return (max);
 }
 
-void	ss(t_list *stack_a, t_list *stack_b)
+int	min_number(t_list** lst)
 {
-	s(stack_b, 1);
-	s(stack_a, 2);
-}
+	int		min;
+	t_list* first;
 
-void	rrr(t_list **stack_a, t_list **stack_b)
-{
-	rr(stack_b, 2);
-	rr(stack_a, 1);
+	min = (*lst)->value;
+	first = *lst;
+	while (first)
+	{
+		if (min >= first->value)
+			min = first->value;
+		first = first->next;
+	}
+	return (min);
 }

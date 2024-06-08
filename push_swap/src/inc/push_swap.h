@@ -39,7 +39,7 @@ char*	ft_strdup(const char*	s);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list*	ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-int ft_lstsize(t_list *lst);
+int		ft_lstsize(t_list *lst);
 
 // parsing
 int		check_no_digit(char* av);
@@ -61,18 +61,19 @@ int		ft_putnbr(int num);
 int		ft_printu(unsigned int num);
 
 // moves
-void	s(t_list* swap, int i);
+void	s(t_list** stack, int i);
 void	p(t_list** stack_src, t_list** stack_dest, int i);
 void	r_r(t_list **stack_a, t_list **stack_b);
-void	ss(t_list *stack_a, t_list *stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	r(t_list** stack, int i);
 void	rr(t_list** stack, int i);
-void	push_swap(t_list** list);
+void	push_swap(t_list** list, t_list** stack_b);
 int		if_sorted(t_list** lst);
-int		max_number(t_list** lst);
-int		min_number(t_list** lst);
-void	four(t_list** lst);
+int		max_number(t_list* lst);
+int		min_number(t_list* lst);
+void	fivenfour(t_list** stack_a, t_list** stack_b);
 void	three(t_list** lst);
+int		indeX(t_list* list, int min);
 
 #endif

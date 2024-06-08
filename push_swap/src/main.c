@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:21:35 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/03 22:47:07 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/08 17:42:41 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ char *av_join(char **av)
 
 t_list *list_parse(char **av)
 {
-	char *str;
-	char **str_arr;
-	int i;
-	t_list *list;
+	char	*str;
+	char	**str_arr;
+	int		i;
+	t_list	*list;
 	
 	i = 0;
 	if (check_digit(av))
@@ -77,6 +77,11 @@ t_list *list_parse(char **av)
 	str = av_join(av);
 	check_no_digit(str);
 	str_arr = ft_split(str, ' ');
+	if (!str_arr)
+	{
+		free (str);
+		error();
+	}
 	free(str);
 	while (str_arr[i])
 	{
@@ -88,28 +93,50 @@ t_list *list_parse(char **av)
 		i++;
 	}
 	list = list_create(str_arr);
+	if (!list)
+	{
+		ft_lstclear(&list);
+		free_double(str_arr);
+		error();
+	}
 	free_double(str_arr);
 	return (list);
 }
 
 int main(int ac, char **av)
 {
-	t_list	*list;
+	t_list	*lst;
 	t_list	*list1;
+	t_list	*stack_b;
 	
 	if (ac > 1)
 	{
-		list = list_parse(av);
-		list1 = list;
-		if (!list)
+		stack_b = NULL;
+		lst = list_parse(av);
+		if (!lst)
+		{
+			ft_lstclear(&lst);
 			error();
-		if (check_double(list))
+		}
+		list1 = lst;
+		if (!lst)
 		{
 			ft_lstclear(&list1);
 			error();
 		}
-		push_swap(&list);
+		if (check_double(lst))
+		{
+			ft_lstclear(&list1);
+			error();
+		}
+		if (if_sorted(&lst))
+		{
+			ft_lstclear(&list1);
+			return (0);
+		}
+		push_swap(&lst, &stack_b);
 		ft_lstclear(&list1);
+		ft_lstclear(&stack_b);
 	}
 	return (0);
 }

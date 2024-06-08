@@ -3,60 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 18:10:12 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/04 02:15:12 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/08 16:33:00 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void four(t_list** lst)
+void fivenfour(t_list** stack_a, t_list **stack_b)
 {
-    int min;
-    t_list* tmp;
-    t_list* b;
-    
-    min = min_number(lst);
-    b = NULL;
-    tmp = *lst;
-    while (*lst)
-    {
-        if ((*lst)->value == min)
-        {
-			ft_printf("%d\n",(*lst)->value);
-            p(lst, &b, 2);
-			// ft_printf("%d\n",(*lst)->value);
-			// exit(1);
-            break;
-        }
-        *lst = (*lst)->next;
-    }
-	// ft_printf("%d\n",(*lst)->value);
-	*lst = tmp;
-    three(&tmp);
-	// *lst = tmp;
-    p(&b, lst, 1);
-	// ft_printf("%d\n%d\n%d\n%d\n",(*lst)->value,(*lst)->next->value,(*lst)->next->next->value,(*lst)->next->next->next->value);
+	int	min;
+	int index;
+	int size;
+
+	min = min_number(*stack_a);
+	index = indeX(*stack_a, min);
+	size = ft_lstsize(*stack_a);
+	while (size > 3)
+	{
+		if (index == 0)
+			p(stack_a, stack_b, 2);
+		else if (size / 2 >= index)
+			r(stack_a, 1);
+		else if (size / 2 < index)
+			rr(stack_a, 1);
+		min = min_number(*stack_a);
+		index = indeX(*stack_a, min);
+		size = ft_lstsize(*stack_a);
+	}
+	three(stack_a);
+	p(stack_b, stack_a, 1);
+	p(stack_b, stack_a, 1);
 }
 
 void three(t_list** lst)
 {
-    int max;
-    t_list* first;
+	int max;
 
-    if (!lst || !*lst || !(*lst)->next || !(*lst)->next->next)
-        return;  
-    max = max_number(lst);
-    first = *lst;
-
-    if (first->value == max)
-        r(lst, 1);
-    else if (first->next->value == max)
-        rr(lst, 1);
-    if (!if_sorted(lst))
-        s(*lst, 1);
+	max = max_number(*lst);
+	if (max == (*lst)->value)
+		r(lst, 1);
+	else if (max == (*lst)->next->value)
+		rr(lst, 1);
+	if ((*lst)->value > (*lst)->next->value)
+		s(lst, 1);
 }
 
 int	if_sorted(t_list** lst)
@@ -76,17 +68,13 @@ int	if_sorted(t_list** lst)
 	return (1);
 }
 
-void	push_swap(t_list** list)
+void	push_swap(t_list** list, t_list** stack_b)
 {
-	if (if_sorted(list))
-		return ;
-	else
-	{
-		if (ft_lstsize(*list) == 2)
-			s(*list, 1);
-		else if (ft_lstsize(*list) == 3)
-			three(list);
-		else if (ft_lstsize(*list) == 4)
-			four(list);
-	}
+	int	len;
+
+	len = ft_lstsize(*list); 
+	if (len <= 3 && len > 1)
+		three(list);
+	else if (len > 3 && len <= 5)
+		fivenfour(list,stack_b);
 }

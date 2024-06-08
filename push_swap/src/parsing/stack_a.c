@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 00:34:43 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/02 21:27:58 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/08 17:43:27 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,15 @@ t_list *list_new(int val, unsigned int index, t_list *next)
 	list->index = index;
 	list->value = val;
 	list->next = next;
-
-	return list;
+	return (list);
 }
 
 t_list *list_create(char **list_arr)
 {
-	t_list *list, *tmp, *head;
-	int i;
+	t_list	*list;
+	t_list	*tmp;
+	t_list	*head;
+	int		i;
 
 	i = 0;
 	list = list_new(ft_atoi(list_arr[i]), i, NULL);

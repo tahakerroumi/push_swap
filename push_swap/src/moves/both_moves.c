@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   both_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 16:20:16 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/03 21:06:25 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/06 18:43:48 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	r_r(t_list **stack_a, t_list **stack_b)
 	r(stack_a,1);
 }
 
-void	ss(t_list *stack_a, t_list *stack_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
 	s(stack_b, 1);
 	s(stack_a, 2);

@@ -6,7 +6,7 @@
 /*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 18:10:12 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/08 16:33:00 by ta7ino           ###   ########.fr       */
+/*   Updated: 2024/06/08 18:29:43 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void three(t_list** lst)
 		s(lst, 1);
 }
 
-int	if_sorted(t_list** lst)
+int	if_sorted(t_list* lst)
 {
 	t_list* sort;
 	t_list* sort_next;
 
-	sort = *lst;
-	sort_next = (*lst)->next;
+	sort = lst;
+	sort_next = lst->next;
 	while (sort->next)
 	{
 		if (sort->value > sort_next->value)

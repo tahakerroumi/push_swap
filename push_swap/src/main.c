@@ -6,7 +6,7 @@
 /*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:21:35 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/08 17:42:41 by ta7ino           ###   ########.fr       */
+/*   Updated: 2024/06/08 18:34:48 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,38 +105,28 @@ t_list *list_parse(char **av)
 
 int main(int ac, char **av)
 {
-	t_list	*lst;
-	t_list	*list1;
-	t_list	*stack_b;
-	
-	if (ac > 1)
-	{
-		stack_b = NULL;
-		lst = list_parse(av);
-		if (!lst)
-		{
-			ft_lstclear(&lst);
-			error();
-		}
-		list1 = lst;
-		if (!lst)
-		{
-			ft_lstclear(&list1);
-			error();
-		}
-		if (check_double(lst))
-		{
-			ft_lstclear(&list1);
-			error();
-		}
-		if (if_sorted(&lst))
-		{
-			ft_lstclear(&list1);
-			return (0);
-		}
-		push_swap(&lst, &stack_b);
-		ft_lstclear(&list1);
-		ft_lstclear(&stack_b);
-	}
-	return (0);
+    t_list    *lst;
+    t_list    *stack_b;
+    
+    if (ac > 1)
+    {
+        stack_b = NULL;
+        lst = list_parse(av);
+        if (!lst)
+        {
+            ft_lstclear(&lst);
+            error();
+        }
+        if (!lst || check_double(lst))
+        {
+            ft_lstclear(&lst);
+            error();
+        }
+        else if (if_sorted(lst))
+            return (ft_lstclear(&lst), 0);
+        push_swap(&lst, &stack_b);
+        ft_lstclear(&lst);
+        ft_lstclear(&stack_b);
+    }
+    return (0);
 }

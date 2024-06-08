@@ -69,7 +69,7 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	r(t_list** stack, int i);
 void	rr(t_list** stack, int i);
 void	push_swap(t_list** list, t_list** stack_b);
-int		if_sorted(t_list** lst);
+int		if_sorted(t_list* lst);
 int		max_number(t_list* lst);
 int		min_number(t_list* lst);
 void	fivenfour(t_list** stack_a, t_list** stack_b);

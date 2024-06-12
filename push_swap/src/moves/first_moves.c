@@ -6,13 +6,13 @@
 /*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 17:55:24 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/07 19:05:03 by ta7ino           ###   ########.fr       */
+/*   Updated: 2024/06/11 23:22:59 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	s(t_list** stack, int i)
+void	s(t_list** stack)
 {
 	t_list	*ptr;
 	t_list	*ptr1;
@@ -26,13 +26,9 @@ void	s(t_list** stack, int i)
 	ptr->next = ptr2;
 	ptr1->next = ptr;
 	*stack = ptr1;
-	if (i == 1)
-		ft_printf("sa\n");
-	else
-		ft_printf("sb\n");
 }
 
-void p(t_list** stack_src, t_list** stack_dest, int i)
+void p(t_list** stack_src, t_list** stack_dest)
 {
     t_list* tmp;
 
@@ -42,13 +38,9 @@ void p(t_list** stack_src, t_list** stack_dest, int i)
     *stack_src = tmp->next;
     tmp->next = NULL;
     ft_lstadd_front(stack_dest, tmp);
-    if (i == 1)
-        ft_printf("pa\n");
-    else
-        ft_printf("pb\n");
 }
 
-void	r(t_list** stack, int i)
+void	r(t_list** stack)
 {
 	t_list	*ptr;
 
@@ -58,13 +50,9 @@ void	r(t_list** stack, int i)
 	*stack = ptr->next;
 	ptr->next = NULL;
 	ft_lstadd_back(stack, ptr);
-	if (i == 1)
-		ft_printf("ra\n");
-	else
-		ft_printf("rb\n");
 }
 
-void	rr(t_list** stack, int i)
+void	rr(t_list** stack)
 {
 	t_list	*ptr;
 	t_list	*last;
@@ -78,8 +66,4 @@ void	rr(t_list** stack, int i)
 	ptr->next = NULL;
 	last->next = *stack;
 	*stack = last;
-	if (i == 1)
-		ft_printf("rra\n");
-	else
-		ft_printf("rrb\n");
 }

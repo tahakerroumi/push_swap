@@ -6,7 +6,7 @@
 /*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 00:21:35 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/08 18:34:48 by ta7ino           ###   ########.fr       */
+/*   Updated: 2024/06/12 03:03:08 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int main(int ac, char **av)
             ft_lstclear(&lst);
             error();
         }
-        else if (if_sorted(lst))
+        if (if_sorted(lst))
             return (ft_lstclear(&lst), 0);
         push_swap(&lst, &stack_b);
         ft_lstclear(&lst);

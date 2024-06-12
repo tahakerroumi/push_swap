@@ -6,7 +6,7 @@
 /*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 18:10:12 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/08 18:29:43 by ta7ino           ###   ########.fr       */
+/*   Updated: 2024/06/12 02:56:45 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void fivenfour(t_list** stack_a, t_list **stack_b)
 {
 	int	min;
-	int index;
-	int size;
+	int	index;
+	int	size;
 
 	min = min_number(*stack_a);
 	index = indeX(*stack_a, min);
@@ -24,48 +24,31 @@ void fivenfour(t_list** stack_a, t_list **stack_b)
 	while (size > 3)
 	{
 		if (index == 0)
-			p(stack_a, stack_b, 2);
+			pab(1, stack_a, stack_b);
 		else if (size / 2 >= index)
-			r(stack_a, 1);
+			rab(stack_a, NULL);
 		else if (size / 2 < index)
-			rr(stack_a, 1);
+			rrab(stack_a, NULL);
 		min = min_number(*stack_a);
 		index = indeX(*stack_a, min);
 		size = ft_lstsize(*stack_a);
 	}
 	three(stack_a);
-	p(stack_b, stack_a, 1);
-	p(stack_b, stack_a, 1);
+	pab(0, stack_a, stack_b);
+	pab(0, stack_a, stack_b);
 }
 
 void three(t_list** lst)
 {
-	int max;
+	int	max;
 
 	max = max_number(*lst);
 	if (max == (*lst)->value)
-		r(lst, 1);
+		rab(lst, NULL);
 	else if (max == (*lst)->next->value)
-		rr(lst, 1);
-	if ((*lst)->value > (*lst)->next->value)
-		s(lst, 1);
-}
-
-int	if_sorted(t_list* lst)
-{
-	t_list* sort;
-	t_list* sort_next;
-
-	sort = lst;
-	sort_next = lst->next;
-	while (sort->next)
-	{
-		if (sort->value > sort_next->value)
-			return (0);
-		sort_next = sort_next->next;
-		sort = sort->next;
-	}
-	return (1);
+		rrab(lst, NULL);
+	if (!if_sorted(*lst))
+		sab(lst, NULL);
 }
 
 void	push_swap(t_list** list, t_list** stack_b)
@@ -77,4 +60,14 @@ void	push_swap(t_list** list, t_list** stack_b)
 		three(list);
 	else if (len > 3 && len <= 5)
 		fivenfour(list,stack_b);
+	else if (len <= 400)
+	{
+		sort_number(list, stack_b, array(list), 15);
+		back_to_a(list, stack_b);
+	}
+	else
+	{
+		sort_number (list, stack_b, array(list), 30);
+		back_to_a (list, stack_b);
+	}
 }

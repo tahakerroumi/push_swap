@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: ta7ino <ta7ino@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 21:55:33 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/06/02 22:05:56 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/06/12 02:45:50 by ta7ino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 
 void	error()
 {
-	write(2,"Error\n",sizeof("Error\n"));
+	write(2,"Error\n",6);
 	exit(1);
 }
 

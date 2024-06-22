@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	s(t_list** stack)
+void	s(t_list **stack)
 {
 	t_list	*ptr;
 	t_list	*ptr1;
@@ -28,19 +28,19 @@ void	s(t_list** stack)
 	*stack = ptr1;
 }
 
-void p(t_list** stack_src, t_list** stack_dest)
+void	p(t_list **stack_src, t_list **stack_dest)
 {
-    t_list* tmp;
+	t_list	*tmp;
 
-    if (!stack_src || !*stack_src)
-        return ;
-    tmp = *stack_src;
-    *stack_src = tmp->next;
-    tmp->next = NULL;
-    ft_lstadd_front(stack_dest, tmp);
+	if (!stack_src || !*stack_src)
+		return ;
+	tmp = *stack_src;
+	*stack_src = tmp->next;
+	tmp->next = NULL;
+	ft_lstadd_front(stack_dest, tmp);
 }
 
-void	r(t_list** stack)
+void	r(t_list **stack)
 {
 	t_list	*ptr;
 
@@ -52,7 +52,7 @@ void	r(t_list** stack)
 	ft_lstadd_back(stack, ptr);
 }
 
-void	rr(t_list** stack)
+void	rr(t_list **stack)
 {
 	t_list	*ptr;
 	t_list	*last;

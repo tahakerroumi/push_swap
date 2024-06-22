@@ -51,18 +51,19 @@ char	*ft_strjoin(char *s1, char const *s2)
 	return (str);
 }
 
-void	error()
+void	error(void)
 {
-	write(2,"Error\n",6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
 int	check_no_digit(char *str)
 {
-	int i = 0;
-	
+	int	i;
+
+	i = 0;
 	if (str[i] == '+' || str[i] == '-')
-			i++;
+		i++;
 	if (str[i] == '\0')
 		return (1);
 	while (str[i])
@@ -70,15 +71,16 @@ int	check_no_digit(char *str)
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (1);
 		i++;
-	}	
+	}
 	return (0);
 }
-int check_double(t_list *list)
-{	
-	int num;
-	t_list *tmp;
 
-	while(list)
+int	check_double(t_list *list)
+{
+	int		num;
+	t_list	*tmp;
+
+	while (list)
 	{
 		num = list->value;
 		tmp = list->next;

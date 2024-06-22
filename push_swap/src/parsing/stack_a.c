@@ -12,8 +12,10 @@
 
 #include "../inc/push_swap.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	t_list	*ptr;
+
 	if (!lst)
 		return ;
 	if (!*lst)
@@ -21,26 +23,24 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	t_list* ptr;
-
 	ptr = ft_lstlast(*lst);
 	ptr->next = new;
 	new->next = NULL;
 }
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    if (!lst || !new)
-        return ;
-    new->next = *lst;
-    *lst = new;
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
 
 void	ft_lstclear(t_list **lst)
 {
-	t_list* current;
-	t_list* nxt;
-	
+	t_list	*current;
+	t_list	*nxt;
+
 	if (!lst)
 		return ;
 	current = *lst;
@@ -52,11 +52,12 @@ void	ft_lstclear(t_list **lst)
 	}
 	*lst = NULL;
 }
-t_list *list_new(int val, unsigned int index, t_list *next)
-{
-	t_list *list;
 
-	list = (t_list*)malloc(sizeof(t_list));
+t_list	*list_new(int val, unsigned int index, t_list *next)
+{
+	t_list	*list;
+
+	list = (t_list *)malloc(sizeof(t_list));
 	if (!list)
 		return (NULL);
 	list->index = index;
@@ -65,7 +66,7 @@ t_list *list_new(int val, unsigned int index, t_list *next)
 	return (list);
 }
 
-t_list *list_create(char **list_arr)
+t_list	*list_create(char **list_arr)
 {
 	t_list	*list;
 	t_list	*tmp;
@@ -82,11 +83,10 @@ t_list *list_create(char **list_arr)
 	{
 		tmp = list_new(atoi(list_arr[i]), i, NULL);
 		if (!tmp)
-			return (ft_lstclear(&head),NULL);
+			return (ft_lstclear(&head), NULL);
 		list->next = tmp;
 		list = tmp;
 		i++;
 	}
 	return (head);
 }
-

@@ -12,58 +12,59 @@
 
 #include "../inc/push_swap.h"
 
-void    swap(int *a, int *b)
+void	swap(int *a, int *b)
 {
-    int c;
-    c = a[0];
-    a[0] = b[0];
-    b[0] = c;
+	int	c;
+
+	c = a[0];
+	a[0] = b[0];
+	b[0] = c;
 }
 
-int find(int num, int *arr, int lenght)
-{
-    int i;
-
-    i = 0;
-    while (i < lenght)
-    {
-        if (num == arr[i])
-            return (i);
-        i++;
-    }
-    return (0);
-}
-
-void    change_index(t_list** stack, int *arr)
-{
-    t_list* ptr;
-    int len;
-    
-    ptr = *stack;
-    len = ft_lstsize(*stack);
-    while (ptr)
-    {
-        ptr->index = find(ptr->value,arr,len);
-        ptr = ptr->next;
-    }
-}
-
-int	find_index(t_list *s_a, int x, int p)
+int	find(int num, int *arr, int lenght)
 {
 	int	i;
 
 	i = 0;
-	while (s_a)
+	while (i < lenght)
 	{
-		if (s_a->index <= x || s_a->index <= x + p)
+		if (num == arr[i])
+			return (i);
+		i++;
+	}
+	return (0);
+}
+
+void	change_index(t_list **stack, int *arr)
+{
+	t_list	*ptr;
+	int		len;
+
+	ptr = *stack;
+	len = ft_lstsize(*stack);
+	while (ptr)
+	{
+		ptr->index = find(ptr->value, arr, len);
+		ptr = ptr->next;
+	}
+}
+
+int	find_index(t_list *stack, int x, int div)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->index <= x || stack->index <= x + div)
 			break ;
 		i++;
-		s_a = s_a->next;
+		stack = stack->next;
 	}
 	return (i);
 }
 
-void    sort_number(t_list **stack_a, t_list** stack_b, int *arr, int div)
+void	sort_number(t_list **stack_a, t_list **stack_b, int *arr, int div)
 {
 	int	len;
 	int	i;

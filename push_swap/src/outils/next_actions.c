@@ -51,11 +51,11 @@ char	*ft_strdup(const char *s)
 	return (t);
 }
 
-int check_int_min_max(char *str)
+int	check_int_min_max(char *str)
 {
-	unsigned int i;
-	int	sign;
-	long	num;
+	unsigned int	i;
+	int				sign;
+	long			num;
 
 	i = 0;
 	num = 0;
@@ -71,9 +71,9 @@ int check_int_min_max(char *str)
 	while (ft_isdigit(str[i]))
 	{
 		num = num * 10 + (str[i] - '0');
-		if ((num * sign < INT_MIN ) || (num * sign > INT_MAX))
+		if ((num * sign < INT_MIN) || (num * sign > INT_MAX))
 			return (1);
-		i++;		
+		i++;
 	}
 	return (0);
 }

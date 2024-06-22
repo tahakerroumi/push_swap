@@ -12,11 +12,11 @@
 
 #include "../inc/push_swap.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-    if (lst == 0)
-        return (0);
-    return (1 + ft_lstsize(lst->next));
+	if (lst == 0)
+		return (0);
+	return (1 + ft_lstsize(lst->next));
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
@@ -41,7 +41,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 long	ft_atoi(const char *nptr)
 {
-	long		i;
+	long	i;
 	long	signe;
 	long	res;
 
@@ -65,10 +65,14 @@ long	ft_atoi(const char *nptr)
 	}
 	return (res * signe);
 }
+
 void	check_space(char **av)
 {
-	int	i = 1;
-	int j = 0;
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
 	while (av[i])
 	{
 		while (av[i][j] == ' ')
@@ -82,21 +86,23 @@ void	check_space(char **av)
 
 int	check_digit(char **av)
 {
-	int i = 0;
-	int j = 0;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
 	while (av[i])
 		if (!*av[i++])
-			return(1);
+			return (1);
 	check_space(av);
-	
-	i = 0;	
+	i = 0;
 	while (av[i])
 	{
 		j = 0;
-	
 		while (av[i][j])
 		{
-			if ((av[i][j] == '-' || av[i][j] == '+') && (ft_isdigit(av[i][j + 1])))
+			if ((av[i][j] == '-' || av[i][j] == '+') \
+			&& (ft_isdigit(av[i][j + 1])))
 				return (0);
 			else if (ft_isdigit(av[i][j]))
 				return (0);

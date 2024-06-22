@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-int	max_number(t_list* lst)
+int	max_number(t_list	*lst)
 {
 	int		max;
 
@@ -28,9 +28,9 @@ int	max_number(t_list* lst)
 	return (max);
 }
 
-int	min_number(t_list* lst)
+int	min_number(t_list *lst)
 {
-	int		min;
+	int	min;
 
 	if (!lst)
 		return (0);
@@ -44,10 +44,10 @@ int	min_number(t_list* lst)
 	return (min);
 }
 
-int	indeX(t_list* list, int min)
+int	in(t_list *list, int min)
 {
-	int index;
-	
+	int	index;
+
 	index = 0;
 	while (list)
 	{
@@ -75,11 +75,11 @@ void	sortarray(int *arr, int len)
 	}
 }
 
-int	*array(t_list** stack)
+int	*array(t_list **stack)
 {
-	int 	i;
-	int 	*arr;
-	t_list* ptr;
+	int		i;
+	int		*arr;
+	t_list	*ptr;
 
 	i = 0;
 	arr = malloc(ft_lstsize(*stack) * sizeof(int));

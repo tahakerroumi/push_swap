@@ -12,14 +12,14 @@
 
 #include "../inc/push_swap.h"
 
-void fivenfour(t_list** stack_a, t_list **stack_b)
+void	fivenfour(t_list	**stack_a, t_list **stack_b)
 {
 	int	min;
 	int	index;
 	int	size;
 
 	min = min_number(*stack_a);
-	index = indeX(*stack_a, min);
+	index = in(*stack_a, min);
 	size = ft_lstsize(*stack_a);
 	while (size > 3)
 	{
@@ -30,7 +30,7 @@ void fivenfour(t_list** stack_a, t_list **stack_b)
 		else if (size / 2 < index)
 			rrab(stack_a, NULL);
 		min = min_number(*stack_a);
-		index = indeX(*stack_a, min);
+		index = in(*stack_a, min);
 		size = ft_lstsize(*stack_a);
 	}
 	three(stack_a);
@@ -38,7 +38,7 @@ void fivenfour(t_list** stack_a, t_list **stack_b)
 	pab(0, stack_a, stack_b);
 }
 
-void three(t_list** lst)
+void	three(t_list **lst)
 {
 	int	max;
 
@@ -51,15 +51,15 @@ void three(t_list** lst)
 		sab(lst, NULL);
 }
 
-void	push_swap(t_list** list, t_list** stack_b)
+void	push_swap(t_list **list, t_list **stack_b)
 {
 	int	len;
 
-	len = ft_lstsize(*list); 
+	len = ft_lstsize(*list);
 	if (len <= 3 && len > 1)
 		three(list);
 	else if (len > 3 && len <= 5)
-		fivenfour(list,stack_b);
+		fivenfour(list, stack_b);
 	else if (len <= 400)
 	{
 		sort_number(list, stack_b, array(list), 15);

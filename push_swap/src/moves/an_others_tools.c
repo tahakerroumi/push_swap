@@ -12,10 +12,10 @@
 
 #include "../inc/push_swap.h"
 
-int	if_sorted(t_list* lst)
+int	if_sorted(t_list	*lst)
 {
-	t_list* sort;
-	t_list* sort_next;
+	t_list	*sort;
+	t_list	*sort_next;
 
 	sort = lst;
 	sort_next = lst->next;

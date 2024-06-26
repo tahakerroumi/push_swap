@@ -68,7 +68,7 @@ int	check_no_digit(char *str)
 		return (1);
 	while (str[i])
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
+		if (!ft_isdigit(str[i]))
 			return (1);
 		i++;
 	}

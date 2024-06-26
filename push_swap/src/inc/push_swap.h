@@ -70,7 +70,7 @@ void	sab(t_list **stack_a, t_list **stack_b);
 void	pab(int i, t_list **stack_a, t_list **stack_b);
 void	rab(t_list **stack_a, t_list **stack_b);
 void	rrab(t_list **stack_a, t_list **stack_b);
-void	push_swap(t_list **list, t_list **stack_b);
+void	push_swap(t_list **stack_a, t_list **stack_b);
 int		if_sorted(t_list *lst);
 int		max_number(t_list *lst);
 int		min_number(t_list *lst);
@@ -87,6 +87,6 @@ int		find(int num, int *arr, int lenght);
 void	change_index(t_list **stack, int *arr);
 void	sortarray(int *arr, int len);
 void	back_to_a(t_list **stack_a, t_list **stack_b);
-int		get_i(t_list *stack, int val);
+int		get_i(t_list *stack_a, int val);
 
 #endif

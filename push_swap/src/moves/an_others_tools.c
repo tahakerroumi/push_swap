@@ -29,42 +29,42 @@ int	if_sorted(t_list	*lst)
 	return (1);
 }
 
-int	get_i(t_list *s_a, int val)
+int	get_i(t_list *stack_a, int val)
 {
 	int	i;
 
 	i = 0;
-	while (s_a)
+	while (stack_a)
 	{
-		if (s_a->value == val)
+		if (stack_a->value == val)
 			return (i);
 		i++;
-		s_a = s_a->next;
+		stack_a = stack_a->next;
 	}
 	return (-1);
 }
 
-void	back_to_a(t_list **s_a, t_list **s_b)
+void	back_to_a(t_list **stack_a, t_list **stack_b)
 {
 	int	max;
 	int	len;
 	int	index;
 
-	len = ft_lstsize(*s_b);
-	max = max_number(*s_b);
-	index = get_i(*s_b, max);
+	len = ft_lstsize(*stack_b);
+	max = max_number(*stack_b);
+	index = get_i(*stack_b, max);
 	while (len)
 	{
-		if ((*s_b)->value == max)
+		if ((*stack_b)->value == max)
 		{
-			pab(0, s_a, s_b);
+			pab(0, stack_a, stack_b);
 			len--;
-			max = max_number(*s_b);
-			index = get_i(*s_b, max);
+			max = max_number(*stack_b);
+			index = get_i(*stack_b, max);
 		}
 		else if (index < len / 2)
-			rab(NULL, s_b);
+			rab(NULL, stack_b);
 		else
-			rrab(NULL, s_b);
+			rrab(NULL, stack_b);
 	}
 }

@@ -28,7 +28,7 @@ void	free_double(char **ptr)
 size_t	get_av_len(char **av)
 {
 	int		i;
-	size_t	len;
+	int		len;
 
 	i = 1;
 	len = 0;
@@ -73,48 +73,44 @@ t_list	*list_parse(char **av)
 	int		i;
 	t_list	*list;
 
-	i = 0;
 	if (check_digit(av))
 		error();
+	i = 0;
 	str = av_join(av);
-	check_no_digit(str);
 	str_arr = ft_split(str, ' ');
 	free(str);
 	if (!if_error_check(str_arr))
 		error();
 	list = list_create(str_arr);
 	if (!list)
-	{
 		ft_lstclear(&list);
-		free_double(str_arr);
-	}
 	free_double(str_arr);
 	return (list);
 }
 
 int	main(int ac, char **av)
 {
-	t_list	*lst;
+	t_list	*stack_a;
 	t_list	*stack_b;
 
 	if (ac > 1)
 	{
 		stack_b = NULL;
-		lst = list_parse(av);
-		if (!lst)
+		stack_a = list_parse(av);
+		if (!stack_a)
 		{
-			ft_lstclear(&lst);
+			ft_lstclear(&stack_a);
 			error();
 		}
-		if (!lst || check_double(lst))
+		if (check_double(stack_a))
 		{
-			ft_lstclear(&lst);
+			ft_lstclear(&stack_a);
 			error();
 		}
-		if (if_sorted(lst))
-			return (ft_lstclear(&lst), 0);
-		push_swap(&lst, &stack_b);
-		ft_lstclear(&lst);
+		if (if_sorted(stack_a))
+			return (ft_lstclear(&stack_a), 0);
+		push_swap(&stack_a, &stack_b);
+		ft_lstclear(&stack_a);
 		ft_lstclear(&stack_b);
 	}
 	return (0);

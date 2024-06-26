@@ -51,23 +51,23 @@ void	three(t_list **lst)
 		sab(lst, NULL);
 }
 
-void	push_swap(t_list **list, t_list **stack_b)
+void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	len;
 
-	len = ft_lstsize(*list);
+	len = ft_lstsize(*stack_a);
 	if (len <= 3 && len > 1)
-		three(list);
+		three(stack_a);
 	else if (len > 3 && len <= 5)
-		fivenfour(list, stack_b);
+		fivenfour(stack_a, stack_b);
 	else if (len <= 400)
 	{
-		sort_number(list, stack_b, array(list), 15);
-		back_to_a(list, stack_b);
+		sort_number(stack_a, stack_b, array(stack_a), 15);
+		back_to_a(stack_a, stack_b);
 	}
 	else
 	{
-		sort_number (list, stack_b, array(list), 30);
-		back_to_a (list, stack_b);
+		sort_number (stack_a, stack_b, array(stack_a), 30);
+		back_to_a (stack_a, stack_b);
 	}
 }

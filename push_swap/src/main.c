@@ -70,12 +70,10 @@ t_list	*list_parse(char **av)
 {
 	char	*str;
 	char	**str_arr;
-	int		i;
 	t_list	*list;
 
 	if (check_digit(av))
 		error();
-	i = 0;
 	str = av_join(av);
 	str_arr = ft_split(str, ' ');
 	free(str);

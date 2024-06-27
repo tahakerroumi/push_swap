@@ -38,3 +38,4 @@ fclean: clean
 	rm -rf $(EXEC)
 
 re: fclean all
+.SECONDARY: $(OBJ)
